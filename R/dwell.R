@@ -21,12 +21,7 @@ dwell_time <- function(data, ids, timestamps, dwell_threshold = 100){
   # Check type. We need timestamps to end up as numeric seconds representations,
   # which we can trivially convert to if they're POSIX (or if they're already)
   # formatted) but can't handle consistently otherwise.
-  if(any(c("POSIXlt","POSIXt") %in% c(class(data[,timestamps])))){
-    data[,timestamps] <- as.numeric(data[,timestamps])
-  } else if(!any(c("numeric","integer") %in% class(data[,timestamps]))){
-    stop("The timestamps column must be either a numeric value representing seconds,
-         or POSIX timestamps")
-  }
+  data <- numeric_check(data, timestamps)
   
   # Split the data up per unique session/user ID.
   split_data <- split(x = data[,timestamps], f = data[,ids])
