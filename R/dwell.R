@@ -8,23 +8,23 @@
 #'
 #'@param data a data.frame containing session data
 #'
-#'@param ids the name or indices of the column containing unique session IDs
+#'@param id_col the name or index of the column containing unique session IDs
 #'
-#'@param timestamps the name or indices of the column containing timestamps.
+#'@param ts_col the name or index of the column containing timestamps
 #'
 #'@param dwell_threshold the value (in seconds) to use to indicate a "successful"
 #'session.
 #'
 #'@export
-dwell_time <- function(data, ids, timestamps, dwell_threshold = 100){
+dwell_time <- function(data, id_col, ts_col, dwell_threshold = 100) {
   
   # Check type. We need timestamps to end up as numeric seconds representations,
   # which we can trivially convert to if they're POSIX (or if they're already)
   # formatted) but can't handle consistently otherwise.
-  data <- numeric_check(data, timestamps)
+  data <- numeric_check(data, ts_col)
   
   # Split the data up per unique session/user ID.
-  split_data <- split(x = data[,timestamps], f = data[,ids])
+  split_data <- split(x = data[, ts_col], f = data[, id_col])
   
-  return(dwell_time_(split_data, dwell_threshold))
+  return(dwell_time_(split_data) > dwell_threshold)
 }

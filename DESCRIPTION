@@ -1,12 +1,17 @@
 Package: ortiz
 Title: Speedy User Satisfaction Computations
-Version: 0.0.1
+Version: 0.0.2
 Author: Oliver Keyes
-Maintainer: Oliver Keyes <okeyes@wikimedia.org>
-Description: Speedily computes various user satisfaction-related metrics for Search.
+Maintainer: Mikhail Popov <mpopov@wikimedia.org>
+Description: Speedily computes various user satisfaction-related metrics for
+    Search.
 License: MIT + file LICENSE
 LazyData: true
-URL: https://gerrit.wikimedia.org/r/#/admin/projects/wikimedia/discovery/ortiz
-BugReports: https://phabricator.wikimedia.org/maniphest/task/create/?projects=Discovery
+URL: https://git.wikimedia.org/summary/?r=wikimedia/discovery/ortiz.git
+BugReports: https://phabricator.wikimedia.org/maniphest/task/create/?
+    projects=Discovery
 LinkingTo: Rcpp
-Imports: Rcpp
+Imports:
+    Rcpp
+RoxygenNote: 5.0.1
+Suggests: testthat

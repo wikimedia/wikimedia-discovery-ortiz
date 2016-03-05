@@ -6,14 +6,13 @@
 using namespace Rcpp;
 
 // dwell_time_
-std::vector < bool > dwell_time_(std::list < std::vector < int > > timestamps, int dwell_value);
-RcppExport SEXP ortiz_dwell_time_(SEXP timestampsSEXP, SEXP dwell_valueSEXP) {
+std::vector < unsigned int > dwell_time_(std::list < std::vector < int > > timestamps);
+RcppExport SEXP ortiz_dwell_time_(SEXP timestampsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
     Rcpp::traits::input_parameter< std::list < std::vector < int > > >::type timestamps(timestampsSEXP);
-    Rcpp::traits::input_parameter< int >::type dwell_value(dwell_valueSEXP);
-    __result = Rcpp::wrap(dwell_time_(timestamps, dwell_value));
+    __result = Rcpp::wrap(dwell_time_(timestamps));
     return __result;
 END_RCPP
 }

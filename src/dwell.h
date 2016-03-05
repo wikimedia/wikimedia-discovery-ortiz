@@ -8,15 +8,12 @@ class dwelltime {
   
 private:
   
-  unsigned int dwell_val;
-  
-  bool dwell_single(std::vector < int > timestamps);
+  unsigned int dwell_single(std::vector < int > timestamps);
   
 public:
   
-  std::vector < bool > dwell_vector(std::list < std::vector < int > > timestamps);
+  std::vector < unsigned int > dwell_vector(std::list < std::vector < int > > timestamps);
   
-  dwelltime(int val);
 };
 
 #endif

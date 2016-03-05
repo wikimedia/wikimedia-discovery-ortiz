@@ -1,35 +1,36 @@
 #include "dwell.h"
 
-bool dwelltime::dwell_single(std::vector < int > timestamps){
+unsigned int dwelltime::dwell_single(std::vector < int > timestamps){
   
   // We can't compute if there was only one event (this should
   // only happen if a user never made it to a result but whatever)
   int input_size = timestamps.size();
   if(input_size < 2){
-    return false;
+    return 0;
   }
   
-  // Ensure timestamps are sorted
-  sort(timestamps.begin(), timestamps.end());
+  // Timestamps should be sorted already, sorting them here would
+  // mess with the visit-page and last-check-in intertimes.
+  // sort(timestamps.begin(), timestamps.end());
+  unsigned int max_intertime = 0;
   
-  // Compute intertime values. If any of them are >
-  // dwell_time, we have a success.
+  // Compute intertime values and figure out the maximum one.
   for(unsigned int i = 1; i < input_size; i++){
-    if((timestamps[i] - timestamps[i-1]) >= dwell_val){
-      return true;
+    if (timestamps[i] - timestamps[i-1] > max_intertime){
+      max_intertime = timestamps[i] - timestamps[i-1];
     }
   }
   
-  // Otherwise, fail
-  return false;
+  // Return
+  return max_intertime;
   
 }
 
-std::vector < bool > dwelltime::dwell_vector(std::list < std::vector < int > > timestamps){
+std::vector < unsigned int > dwelltime::dwell_vector(std::list < std::vector < int > > timestamps){
   
   // Create output object
   unsigned int input_size = timestamps.size();
-  std::vector < bool > output(input_size);
+  std::vector < unsigned int > output(input_size);
   
   // We can't iterate over a list with indices, which is sad (and means we have to
   // distinctly increment an integer for assignment to the output vector)
@@ -44,8 +45,4 @@ std::vector < bool > dwelltime::dwell_vector(std::list < std::vector < int > > t
   
   // Return
   return output;
-}
-
-dwelltime::dwelltime(int val){
-  dwell_val = val;
 }
