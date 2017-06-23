@@ -1,7 +1,13 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^Makefile$
-^README.Rmd$
-^.travis.yml$
+^\.Rhistory$
+^man-roxygen$
+^data-raw$
+^cran-comments\.md$
+^README.Rmd
+^CONDUCT\.md$
+^README_cache$
+^\.travis.yml$
 ^appveyor.yml$
 ^.*\.gitreview$
+^\.lintr$
