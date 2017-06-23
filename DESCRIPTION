@@ -1,6 +1,6 @@
 Package: ortiz
 Title: Speedy User Satisfaction Computations
-Version: 0.0.2
+Version: 0.0.3
 Author: Oliver Keyes
 Maintainer: Mikhail Popov <mpopov@wikimedia.org>
 Description: Speedily computes various user satisfaction-related metrics for
@@ -13,5 +13,7 @@ BugReports: https://phabricator.wikimedia.org/maniphest/task/create/?
 LinkingTo: Rcpp
 Imports:
     Rcpp
-RoxygenNote: 5.0.1
-Suggests: testthat
+RoxygenNote: 6.0.1
+Suggests:
+    testthat,
+    lintr

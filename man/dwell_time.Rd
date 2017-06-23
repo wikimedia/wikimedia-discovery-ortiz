@@ -23,4 +23,3 @@ dwell-times exceeds a certain threshold. If it does, that session is deemed
 to be one in which the user was satisfied. \code{dwell_time} calculates
 that for a data.frame of user sessions.
 }
-

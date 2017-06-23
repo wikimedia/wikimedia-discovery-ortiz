@@ -8,4 +8,3 @@
 \description{
 Speedily computes various user satisfaction-related metrics for Search.
 }
-
