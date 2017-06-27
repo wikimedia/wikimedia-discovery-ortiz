@@ -6,14 +6,11 @@ Maintainer: Mikhail Popov <mpopov@wikimedia.org>
 Description: Speedily computes various user satisfaction-related metrics for
     Search.
 License: MIT + file LICENSE
-LazyData: true
 URL: https://phabricator.wikimedia.org/diffusion/WDOZ/
 BugReports: https://phabricator.wikimedia.org/maniphest/task/create/?
     projects=Discovery
 LinkingTo: Rcpp
-Imports:
-    Rcpp
+Imports: Rcpp
+Suggests: testthat
+LazyData: true
 RoxygenNote: 6.0.1
-Suggests:
-    testthat,
-    lintr

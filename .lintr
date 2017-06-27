@@ -1,5 +1,0 @@
-linters: with_defaults(line_length_linter(120), object_usage_linter = NULL, T_and_F_symbol_linter)
-exclusions: list("R/RcppExports.R")
-exclude: "# Exclude Linting"
-exclude_start: "# Begin Exclude Linting"
-exclude_end: "# End Exclude Linting"
