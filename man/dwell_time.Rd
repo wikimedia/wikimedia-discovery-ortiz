@@ -7,14 +7,14 @@
 dwell_time(data, id_col, ts_col, dwell_threshold = 100)
 }
 \arguments{
-\item{data}{a data.frame containing session data}
+\item{data}{a \code{data.frame} containing session data}
 
 \item{id_col}{the name or index of the column containing unique session IDs}
 
 \item{ts_col}{the name or index of the column containing timestamps}
 
-\item{dwell_threshold}{the value (in seconds) to use to indicate a "successful"
-session.}
+\item{dwell_threshold}{the value (in seconds) to use to indicate a
+"successful" session}
 }
 \description{
 One simple satisfaction heuristic is to look at the dwell time
@@ -22,4 +22,18 @@ a user has on each page in a session and whether any one of those
 dwell-times exceeds a certain threshold. If it does, that session is deemed
 to be one in which the user was satisfied. \code{dwell_time} calculates
 that for a data.frame of user sessions.
+}
+\examples{
+# Data:
+ts <- as.POSIXct(
+  c("2016-03-01T06:52:49Z", "2016-03-01T06:53:19Z", "2016-03-01T06:53:39Z"),
+  format = "\%Y-\%m-\%dT\%H:\%M:\%SZ", tz = "UTC"
+)
+x <- data.frame(timestamp = ts, session_id = "0024c4506bf92e1c")
+
+# Use default threshold:
+dwell_time(x, "session_id", "timestamp")
+
+# Use 10s threshold:
+dwell_time(x, "session_id", "timestamp", 10)
 }

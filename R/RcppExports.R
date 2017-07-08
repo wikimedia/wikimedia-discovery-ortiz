@@ -2,6 +2,6 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 dwell_time_ <- function(timestamps) {
-    .Call('ortiz_dwell_time_', PACKAGE = 'ortiz', timestamps)
+    .Call('_ortiz_dwell_time_', PACKAGE = 'ortiz', timestamps)
 }
 

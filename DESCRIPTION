@@ -1,8 +1,10 @@
 Package: ortiz
 Title: Speedy User Satisfaction Computations
-Version: 0.0.3
-Author: Oliver Keyes
-Maintainer: Mikhail Popov <mpopov@wikimedia.org>
+Version: 0.0.4
+Authors@R: c(
+    person("Mikhail", "Popov", email = "mikhail@wikimedia.org", role = c("aut", "cre")),
+    person("Oliver", "Keyes", role = "aut", comment = "No longer employed at the Foundation")
+    )
 Description: Speedily computes various user satisfaction-related metrics for
     Search.
 License: MIT + file LICENSE
@@ -11,6 +13,9 @@ BugReports: https://phabricator.wikimedia.org/maniphest/task/create/?
     projects=Discovery
 LinkingTo: Rcpp
 Imports: Rcpp
-Suggests: testthat
+Suggests:
+    lintr,
+    testthat
 LazyData: true
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1

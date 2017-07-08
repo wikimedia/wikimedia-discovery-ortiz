@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // dwell_time_
 std::vector < unsigned int > dwell_time_(std::list < std::vector < int > > timestamps);
-RcppExport SEXP ortiz_dwell_time_(SEXP timestampsSEXP) {
+RcppExport SEXP _ortiz_dwell_time_(SEXP timestampsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -18,7 +18,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"ortiz_dwell_time_", (DL_FUNC) &ortiz_dwell_time_, 1},
+    {"_ortiz_dwell_time_", (DL_FUNC) &_ortiz_dwell_time_, 1},
     {NULL, NULL, 0}
 };
 
