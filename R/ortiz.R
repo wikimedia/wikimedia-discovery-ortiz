@@ -1,5 +1,5 @@
-#' @title Speedy User Satisfaction Computations
-#' @description Speedily computes various user satisfaction-related metrics for Search.
+#' @title Speedy User Preference Computations
+#' @description Speedily computes various preference-related metrics for search.
 #' @docType package
 #' @name ortiz
 #' @useDynLib ortiz

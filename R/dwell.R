@@ -31,7 +31,7 @@ dwell_time <- function(data, id_col, ts_col, dwell_threshold = 100) {
   data <- numeric_check(data, ts_col)
 
   # Split the data up per unique session/user ID.
-  splitData <- split(x = data[, ts_col], f = data[, id_col])
+  split_data <- split(x = data[, ts_col], f = data[, id_col])
 
-  return(dwell_time_(splitData) - 1 > dwell_threshold + 0.5)
+  return(dwell_time_(split_data) - 1 > dwell_threshold - 0.5)
 }

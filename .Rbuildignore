@@ -10,4 +10,3 @@
 ^\.travis.yml$
 ^appveyor.yml$
 ^.*\.gitreview$
-^\.lintr$

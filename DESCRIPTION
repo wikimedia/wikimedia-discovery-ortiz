@@ -1,21 +1,30 @@
 Package: ortiz
-Title: Speedy User Satisfaction Computations
-Version: 0.0.4
+Title: Speedy Search Preference Computations
+Version: 1.0.0
+Date: 2019-12-03
 Authors@R: c(
     person("Mikhail", "Popov", email = "mikhail@wikimedia.org", role = c("aut", "cre")),
-    person("Oliver", "Keyes", role = "aut", comment = "No longer employed at the Foundation")
+    person("Os", "Keyes", role = "aut", comment = "No longer employed at the Foundation"),
+    person(family = "Wikimedia Foundation", role = "cph")
     )
-Description: Speedily computes various user satisfaction-related metrics for
-    Search.
+Description: Speedily computes various Preference-related metrics for search.
 License: MIT + file LICENSE
-URL: https://phabricator.wikimedia.org/diffusion/WDOZ/
-BugReports: https://phabricator.wikimedia.org/maniphest/task/create/?
-    projects=Discovery
-LinkingTo: Rcpp
-Imports: Rcpp
+URL: https://gerrit.wikimedia.org/r/plugins/gitiles/wikimedia/discovery/ortiz/
+BugReports: https://phabricator.wikimedia.org/maniphest/task/create/?projects=Product-Analytics&assigned=mpopov
+Imports:
+    Rcpp,
+    usethis
 Suggests:
-    lintr,
+    roxygen2 (>= 7.0.0),
     testthat
+LinkingTo:
+    BH,
+    Rcpp,
+    RcppArmadillo (>= 0.3.810)
+NeedsCompilation: yes
+SystemRequirements: C++11
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.0.1
+Encoding: UTF-8
+VignetteBuilder: knitr
+RoxygenNote: 7.0.2

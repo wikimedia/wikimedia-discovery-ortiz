@@ -3,8 +3,7 @@
 \docType{package}
 \name{ortiz}
 \alias{ortiz}
-\alias{ortiz-package}
-\title{Speedy User Satisfaction Computations}
+\title{Speedy User Preference Computations}
 \description{
-Speedily computes various user satisfaction-related metrics for Search.
+Speedily computes various preference-related metrics for search.
 }
