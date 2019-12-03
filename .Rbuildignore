@@ -10,3 +10,5 @@
 ^\.travis.yml$
 ^appveyor.yml$
 ^.*\.gitreview$
+^Meta$
+^doc$

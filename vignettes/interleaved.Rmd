@@ -45,9 +45,9 @@ In order to obtain confidence intervals for the preference statistic, we utilize
 This package provides simulated search and click data. The three built-in datasets have simulated users that (1) exhibit no preference, (2) exhibit preference for the ranking function "A", and (3) exhibit preference for the ranking function "B".
 
 ```{r}
-data(interleaved_data, package = "wmf") # no preference
-data(interleaved_data_a, package = "wmf") # preference for A
-data(interleaved_data_b, package = "wmf") # preference for B
+data(interleaved_data, package = "ortiz") # no preference
+data(interleaved_data_a, package = "ortiz") # preference for A
+data(interleaved_data_b, package = "ortiz") # preference for B
 ```
 
 Here are the first few rows of the third dataset:
@@ -59,7 +59,7 @@ knitr::kable(head(interleaved_data_b))
 ## Estimation
 
 ```{r}
-library(wmf)
+library(ortiz)
 ```
 
 To calculate $\Delta_{AB}$ with `interleaved_preference`, we will need to use the clicks. We also use bootstrapping via `interleaved_bootstraps` which resamples sessions (with replacement) to obtain a distribution of the preference statistic $\Delta_{AB}$. After we plot each bootstrapped sample, we mark the 95% confidence interval bounds. **Note** that `interleaved_confint` outputs the `quantile`-based CI and uses the same bootstrap function internally.
