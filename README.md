@@ -1,4 +1,8 @@
-# Speedy Search Preference Computations
+# wmfastr: Speedy Dwelltime and Search Preference Computations
+
+**NOTICE**: while this package is installed from GitHub ([wikimedia/wmfastr](https://github.com/wikimedia/wmfastr)), that repository is a read-only mirror of [wikimedia/discovery/ortiz](https://gerrit.wikimedia.org/g/wikimedia/discovery/ortiz) repository hosted on [Gerrit](https://www.mediawiki.org/wiki/Gerrit). See [mediawiki:Developer account](https://www.mediawiki.org/wiki/Developer_account) for information about creating a Wikimedia Developer account for contributing to this package, MediaWiki, and other Wikimedia projects.
+
+Other packages from [Wikimedia Foundations's Product Analytics team](https://www.mediawiki.org/wiki/Product_Analytics) include: [wmfdata](https://github.com/wikimedia/wmfdata-r) for working with Wikimedia data in R, [wmfdata](https://github.com/wikimedia/wmfdata-python) for working with Wikimedia data in Python, and [waxer](https://github.com/wikimedia/waxer) for querying Wikimedia Analytics Query Service in R.
 
 ## Installation
 
@@ -6,14 +10,24 @@ This package requires compilation with a compiler that supports [C++11](https://
 
 ```R
 # install.packages("remotes", repos = c(CRAN = "https://cran.rstudio.com/"))
-
-remotes::install_git("https://gerrit.wikimedia.org/r/wikimedia/discovery/ortiz")
-
-# Alternatively, you can install from GitHub mirror:
-remotes::install_github("wikimedia/wikimedia-discovery-ortiz")
+remotes::install_github("wikimedia/wmfastr")
 ```
 
-To update: `remotes::update_packages("ortiz")`
+To update:
+
+```R
+remotes::update_packages("wmfastr")
+```
+
+## Highlights
+
+Functions for estimating preference of ranking functions using clicks on interleaved search results:
+  - `interleaved_preference` estimates preference; see vignette for details
+  - `interleaved_bootstraps` resamples sessions with replacement to yield bootstrapped sample of preferences
+  - `interleaved_confint` uses `interleaved_bootstraps` and `stats::quantile` to yield a bootstrapped confidence interval
+
+Functions for determining user satisfaction rate based on dwell time:
+  - `dwell_time`
 
 ## Maintainers
 

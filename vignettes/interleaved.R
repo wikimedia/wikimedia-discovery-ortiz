@@ -2,15 +2,15 @@
 set.seed(0)
 
 ## -----------------------------------------------------------------------------
-data(interleaved_data, package = "ortiz") # no preference
-data(interleaved_data_a, package = "ortiz") # preference for A
-data(interleaved_data_b, package = "ortiz") # preference for B
+data(interleaved_data, package = "wmfastr") # no preference
+data(interleaved_data_a, package = "wmfastr") # preference for A
+data(interleaved_data_b, package = "wmfastr") # preference for B
 
 ## ---- results='asis'----------------------------------------------------------
 knitr::kable(head(interleaved_data_b))
 
 ## -----------------------------------------------------------------------------
-library(ortiz)
+library(wmfastr)
 
 ## ----no_pref------------------------------------------------------------------
 x <- interleaved_data[interleaved_data$event == "click", ]

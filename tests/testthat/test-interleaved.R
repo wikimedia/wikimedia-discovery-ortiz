@@ -1,6 +1,6 @@
 context("Interleaved search results")
 
-test_data <- readRDS(system.file("extdata/sample_clicks.rds", package = "ortiz"))
+test_data <- readRDS(system.file("extdata/sample_clicks.rds", package = "wmfastr"))
 
 test_that("preference statistic", {
   expect_equal(

@@ -10,7 +10,8 @@
 \alias{interleaved_data_a}
 \alias{interleaved_data_b}
 \title{Interleaved search results}
-\format{\verb{interleaved_data*} are \code{data.frame}-s of generated search sessions with
+\format{
+\verb{interleaved_data*} are \code{data.frame}-s of generated search sessions with
 the following columns:
 \describe{
 \item{session_id}{10-character alphanumeric ID; for grouping events}
@@ -21,7 +22,12 @@ the following columns:
 }
 Users in \code{interleaved_data} have no preference, users in
 \code{interleaved_data_a} have preference for ranking function "A", and users
-in \code{interleaved_data_b} have preference for ranking function "B".}
+in \code{interleaved_data_b} have preference for ranking function "B".
+
+An object of class \code{data.frame} with 5396 rows and 5 columns.
+
+An object of class \code{data.frame} with 5552 rows and 5 columns.
+}
 \usage{
 interleaved_bootstraps(sessions, clicks, bootstraps = 1000L)
 

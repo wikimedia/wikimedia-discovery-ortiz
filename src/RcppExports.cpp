@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 // exact_binom
 unsigned int exact_binom(double constant_prop, double effect_size, double alpha, double power, bool two_tail);
-RcppExport SEXP _ortiz_exact_binom(SEXP constant_propSEXP, SEXP effect_sizeSEXP, SEXP alphaSEXP, SEXP powerSEXP, SEXP two_tailSEXP) {
+RcppExport SEXP _wmfastr_exact_binom(SEXP constant_propSEXP, SEXP effect_sizeSEXP, SEXP alphaSEXP, SEXP powerSEXP, SEXP two_tailSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -23,7 +23,7 @@ END_RCPP
 }
 // interleaved_bootstraps
 std::vector<double> interleaved_bootstraps(std::vector<std::string> sessions, std::vector<std::string> clicks, int bootstraps);
-RcppExport SEXP _ortiz_interleaved_bootstraps(SEXP sessionsSEXP, SEXP clicksSEXP, SEXP bootstrapsSEXP) {
+RcppExport SEXP _wmfastr_interleaved_bootstraps(SEXP sessionsSEXP, SEXP clicksSEXP, SEXP bootstrapsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -36,7 +36,7 @@ END_RCPP
 }
 // interleaved_confint
 List interleaved_confint(std::vector<std::string> sessions, std::vector<std::string> clicks, int bootstraps, double confidence);
-RcppExport SEXP _ortiz_interleaved_confint(SEXP sessionsSEXP, SEXP clicksSEXP, SEXP bootstrapsSEXP, SEXP confidenceSEXP) {
+RcppExport SEXP _wmfastr_interleaved_confint(SEXP sessionsSEXP, SEXP clicksSEXP, SEXP bootstrapsSEXP, SEXP confidenceSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -50,7 +50,7 @@ END_RCPP
 }
 // interleaved_preference
 double interleaved_preference(std::vector<std::string> sessions, std::vector<std::string> clicks);
-RcppExport SEXP _ortiz_interleaved_preference(SEXP sessionsSEXP, SEXP clicksSEXP) {
+RcppExport SEXP _wmfastr_interleaved_preference(SEXP sessionsSEXP, SEXP clicksSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -62,7 +62,7 @@ END_RCPP
 }
 // dwell_time_
 std::vector < unsigned int > dwell_time_(std::list < std::vector < int > > timestamps);
-RcppExport SEXP _ortiz_dwell_time_(SEXP timestampsSEXP) {
+RcppExport SEXP _wmfastr_dwell_time_(SEXP timestampsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -73,15 +73,15 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_ortiz_exact_binom", (DL_FUNC) &_ortiz_exact_binom, 5},
-    {"_ortiz_interleaved_bootstraps", (DL_FUNC) &_ortiz_interleaved_bootstraps, 3},
-    {"_ortiz_interleaved_confint", (DL_FUNC) &_ortiz_interleaved_confint, 4},
-    {"_ortiz_interleaved_preference", (DL_FUNC) &_ortiz_interleaved_preference, 2},
-    {"_ortiz_dwell_time_", (DL_FUNC) &_ortiz_dwell_time_, 1},
+    {"_wmfastr_exact_binom", (DL_FUNC) &_wmfastr_exact_binom, 5},
+    {"_wmfastr_interleaved_bootstraps", (DL_FUNC) &_wmfastr_interleaved_bootstraps, 3},
+    {"_wmfastr_interleaved_confint", (DL_FUNC) &_wmfastr_interleaved_confint, 4},
+    {"_wmfastr_interleaved_preference", (DL_FUNC) &_wmfastr_interleaved_preference, 2},
+    {"_wmfastr_dwell_time_", (DL_FUNC) &_wmfastr_dwell_time_, 1},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_ortiz(DllInfo *dll) {
+RcppExport void R_init_wmfastr(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }

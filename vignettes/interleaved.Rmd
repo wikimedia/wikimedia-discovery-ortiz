@@ -4,7 +4,7 @@ author: "Mikhail Popov"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Estimating Preference For Ranking Functions With Clicks On Interleaved Search Results}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -13,7 +13,7 @@ set.seed(0)
 ```
 ## Introduction
 
-The way Search and Discovery's Analysts have been assessing changes to search has so traditionally relied on A/B testing wherein the control group receives results using the latest configuration and the test group (or groups) receives results using the experimental configuration. Another way to evaluate the user-perceived relevance of search results from the experimental configuration relies on a technique called *interleaving*. In it, each user is their own baseline -- we perform two searches behind the scenes and then interleave them together into a single set of results using the team draft algorithm described by Chapelle et al. (2012):
+The way [Wikimedia Search Platform](https://www.mediawiki.org/wiki/Wikimedia_Search_Platform)'s (formerly [Wikimedia Discovery](https://www.mediawiki.org/wiki/Wikimedia_Discovery)) analyses have been assessing changes to search has traditionally relied on A/B testing wherein the control group receives results using the latest configuration and the test group (or groups) receives results using the experimental configuration. Another way to evaluate the user-perceived relevance of search results from the experimental configuration relies on a technique called *interleaving*. In it, each user is their own baseline -- we perform two searches behind the scenes and then interleave them together into a single set of results using the team draft algorithm described by Chapelle et al. (2012):
 
 1. **Input**: result sets $A$ and $B$.
 2. **Initialize**: an empty interleaved result sets $I$ and drafts $T_A, T_B$ for keeping track of which results belong to which team.
@@ -45,9 +45,9 @@ In order to obtain confidence intervals for the preference statistic, we utilize
 This package provides simulated search and click data. The three built-in datasets have simulated users that (1) exhibit no preference, (2) exhibit preference for the ranking function "A", and (3) exhibit preference for the ranking function "B".
 
 ```{r}
-data(interleaved_data, package = "ortiz") # no preference
-data(interleaved_data_a, package = "ortiz") # preference for A
-data(interleaved_data_b, package = "ortiz") # preference for B
+data(interleaved_data, package = "wmfastr") # no preference
+data(interleaved_data_a, package = "wmfastr") # preference for A
+data(interleaved_data_b, package = "wmfastr") # preference for B
 ```
 
 Here are the first few rows of the third dataset:
@@ -59,7 +59,7 @@ knitr::kable(head(interleaved_data_b))
 ## Estimation
 
 ```{r}
-library(ortiz)
+library(wmfastr)
 ```
 
 To calculate $\Delta_{AB}$ with `interleaved_preference`, we will need to use the clicks. We also use bootstrapping via `interleaved_bootstraps` which resamples sessions (with replacement) to obtain a distribution of the preference statistic $\Delta_{AB}$. After we plot each bootstrapped sample, we mark the 95% confidence interval bounds. **Note** that `interleaved_confint` outputs the `quantile`-based CI and uses the same bootstrap function internally.

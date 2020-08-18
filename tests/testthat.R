@@ -1,4 +1,4 @@
 library(testthat)
-library(ortiz)
+library(wmfastr)
 
-test_check("ortiz")
+test_check("wmfastr")

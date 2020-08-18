@@ -22,7 +22,7 @@
 #'   John H. McDonald's [_Handbook of Biological Statistics_](http://www.biostathandbook.com/)
 #' @export
 exact_binom <- function(constant_prop, effect_size, alpha = 0.05, power = 0.8, two_tail = TRUE) {
-    .Call('_ortiz_exact_binom', PACKAGE = 'ortiz', constant_prop, effect_size, alpha, power, two_tail)
+    .Call('_wmfastr_exact_binom', PACKAGE = 'wmfastr', constant_prop, effect_size, alpha, power, two_tail)
 }
 
 #' @param bootstraps number of times to sample unique sessions
@@ -54,7 +54,7 @@ exact_binom <- function(constant_prop, effect_size, alpha = 0.05, power = 0.8, t
 #' @rdname interleaved
 #' @export
 interleaved_bootstraps <- function(sessions, clicks, bootstraps = 1000L) {
-    .Call('_ortiz_interleaved_bootstraps', PACKAGE = 'ortiz', sessions, clicks, bootstraps)
+    .Call('_wmfastr_interleaved_bootstraps', PACKAGE = 'wmfastr', sessions, clicks, bootstraps)
 }
 
 #' @param confidence level; 0.95 by default
@@ -73,7 +73,7 @@ interleaved_bootstraps <- function(sessions, clicks, bootstraps = 1000L) {
 #' @rdname interleaved
 #' @export
 interleaved_confint <- function(sessions, clicks, bootstraps = 1000L, confidence = 0.95) {
-    .Call('_ortiz_interleaved_confint', PACKAGE = 'ortiz', sessions, clicks, bootstraps, confidence)
+    .Call('_wmfastr_interleaved_confint', PACKAGE = 'wmfastr', sessions, clicks, bootstraps, confidence)
 }
 
 #' @param sessions vector of session IDs used to group `positions` and
@@ -95,10 +95,10 @@ interleaved_confint <- function(sessions, clicks, bootstraps = 1000L, confidence
 #' @rdname interleaved
 #' @export
 interleaved_preference <- function(sessions, clicks) {
-    .Call('_ortiz_interleaved_preference', PACKAGE = 'ortiz', sessions, clicks)
+    .Call('_wmfastr_interleaved_preference', PACKAGE = 'wmfastr', sessions, clicks)
 }
 
 dwell_time_ <- function(timestamps) {
-    .Call('_ortiz_dwell_time_', PACKAGE = 'ortiz', timestamps)
+    .Call('_wmfastr_dwell_time_', PACKAGE = 'wmfastr', timestamps)
 }
 

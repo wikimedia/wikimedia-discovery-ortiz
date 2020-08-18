@@ -1,11 +1,11 @@
 context("dwelltime")
 
-sample_events <- read.csv(system.file("extdata", "sample_events.csv", package = "ortiz"), stringsAsFactors = FALSE)
+sample_events <- read.csv(system.file("extdata", "sample_events.csv", package = "wmfastr"), stringsAsFactors = FALSE)
 sample_events$timestamp <- as.POSIXct(sample_events$timestamp, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
 
 test_that("intertimes are correctly estimated", {
   expect_equal(
-    ortiz:::dwell_time_(split(
+    wmfastr:::dwell_time_(split(
       x = sample_events[, "timestamp"],
       f = sample_events[, "session_id"]
     )),
@@ -15,7 +15,7 @@ test_that("intertimes are correctly estimated", {
 
 test_that("session intertimes are correctly estimated", {
   expect_equal(
-    ortiz:::dwell_time_(split(
+    wmfastr:::dwell_time_(split(
       x = sample_events[c(1, 8:9, 18), "timestamp"],
       f = sample_events[c(1, 8:9, 18), "session_id"]
     )),
